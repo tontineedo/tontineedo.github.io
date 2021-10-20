@@ -109,10 +109,3 @@ function reload() {
   document.location.reload();
 };
 
-
-function numerotation() {
-  let i = 0
-
-};
-
-// numerotation();
