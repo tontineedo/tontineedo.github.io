@@ -60,8 +60,8 @@ const audio = (lien) => {
 };
 
 const numberChoice = () => {
-  let cul = Math.floor(Math.random() * 10) + 1;
-  if (tableau.length === 10) {
+  let cul = Math.floor(Math.random() * 11) + 1;
+  if (tableau.length === 11) {
     msgFin.textContent = "FIN DE TIRAGE !";
     msgFin.style.color = "tomato";
     setTimeout(() => {
