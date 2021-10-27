@@ -17,6 +17,8 @@ let tableCode = [
   "C321ED",
   "IU8A74",
   "Z7XBV9",
+  "OU3AR4",
+  "YH38V0"
 ];
 
 boutonChoix.addEventListener("click", () => {
