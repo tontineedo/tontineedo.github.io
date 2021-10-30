@@ -1,19 +1,5 @@
 {
   "posts": [
-    {
-      "pseudo": "Dolus",
-      "message": "Juste un exercice",
-      "id": 1
-    },
-    {
-      "pseudo": "Dolus",
-      "message": "Juste un exercice",
-      "id": 2
-    },
-    {
-      "pseudo": "Dolus",
-      "message": "Juste un exercice",
-      "id": 3
-    }
+    
   ]
 }
