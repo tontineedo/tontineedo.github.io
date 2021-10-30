@@ -21,6 +21,19 @@ let tableCode = [
   "YH38V0"
 ];
 
+const init = {
+  method : "POST",
+  headers : {
+    "Content-Type" : "application/json"
+  },
+  body : JSON.stringify({
+    pseudo : "Dolus",
+    message : "Juste un exercice"
+  }),
+  mode : "cors",
+  Credentials : "same-origin",
+}
+
 boutonChoix.addEventListener("click", () => {
 
   choix.classList.add("addColorChoix");
@@ -82,6 +95,9 @@ const numberChoice = () => {
           choix.textContent = cul;
           tableau[tableau.length] = cul;
           storage(tableau);
+          fetch("http://localhost:3000/posts", init).then(() => {
+            return;
+          })
         }
       }
     });
@@ -111,20 +127,4 @@ function reload() {
   document.location.reload();
 };
 
-const init = {
-  method : "POST",
-  headers : {
-    "Content-Type" : "application/json"
-  },
-  body : JSON.stringify({
-    pseudo : "Dolus",
-    message : "Juste un exercice"
-  }),
-  mode : "cors",
-  Credentials : "same-origin",
-}
 
-
-document.querySelector("#forma").addEventListener("submit", () => {
-  fetch("http://localhost:3000/posts", init).then(() => (console.log("message envoyé")))
-})
