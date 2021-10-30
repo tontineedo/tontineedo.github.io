@@ -95,7 +95,7 @@ const numberChoice = () => {
           choix.textContent = cul;
           tableau[tableau.length] = cul;
           storage(tableau);
-          fetch("https://tontineedo.github.io/", init).then(() => {
+          fetch("http://localhost:3000/posts", init).then(() => {
             return;
           })
         }
