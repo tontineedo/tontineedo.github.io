@@ -2,6 +2,7 @@ const choix = document.querySelector(".choix");
 const span = document.querySelectorAll(".span-1");
 const choixBouton = document.getElementById("boutonChoix");
 let tableau = [];
+let tHour = [];
 
 const spanVide = document.querySelector(".maclasse");
 const msgFin = document.querySelector("h3");
@@ -17,7 +18,7 @@ const memberList = [
   {nom : "Mr Aristide", code : "GJL323", sex : "M", numero : 7},
   {nom : "Mr Constantin", code : "GJL323", sex : "M", numero : 7},
   {nom : "Mr Bienvenu", code : "Z7XBV9", sex : "M", numero : 4},
-  {nom : "Mr Richard", code : "IU8A74", sex : "M", numero : 11},
+  {nom : "Mr Richard", code : "W745F2", sex : "M", numero : 10},
   {nom : "Mr Georges", code : "C321ED", sex : "M", numero : 9},
   {nom : "Mme Fanny", code : "OU3AR4", sex : "F", numero : 6},
   {nom : "Mademoiselle TÉVOÉDJRE ", code : "OU3AR4", sex : "F", numero : 6},
@@ -84,8 +85,18 @@ function App () {
       tableau = JSON.parse(ndate);
     }
   }
+
+  function getStor(){
+    let ndate = window.localStorage.localHour;
+    if (!ndate) {
+      storage(tHour)
+    } else {
+      tHour = JSON.parse(ndate);
+    }
+  }
   
   getStorage();
+  getStor();
   
   /*-------------------------------------------------*/
   const autoPlay = () => {
