@@ -20,8 +20,8 @@ const memberList = [
   {nom : "Mr Bienvenu", code : "Z7XBV9", sex : "M", numero : 4},
   {nom : "Mr Richard", code : "W745F2", sex : "M", numero : 10},
   {nom : "Mr Georges", code : "C321ED", sex : "M", numero : 9},
-  {nom : "Mme Fanny", code : "OU3AR4", sex : "F", numero : 6},
-  {nom : "Mademoiselle TÉVOÉDJRE ", code : "OU3AR4", sex : "F", numero : 6},
+  {nom : "Mme Fanny", code : "125MM7", sex : "F", numero : 6},
+  {nom : "Mademoiselle TÉVOÉDJRE ", code : "125MM7", sex : "F", numero : 6},
   {nom : "Mr Évariste", code : "5LAS45", sex : "M", numero : 8}  
 ]
 
