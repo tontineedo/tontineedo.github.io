@@ -42,6 +42,7 @@ const init = {
 const getDate = document.getElementById("date");
 getDate.value = new Date().toISOString().split("T")[0];
 
+let choixCode = prompt("Vueillez taper votre code : ")
 let nTab = []
 
 memberList.map((element) => {
@@ -157,7 +158,18 @@ function App () {
   };
 }
 
-
-spanVide.classList.add("addvide")
-spanVide.innerHTML = "<p>FIN DE TIRAGES. A l'année prochaine !!!<p/>"
-boutonChoix.setAttribute("disabled", "off")
+if(choixCode){
+  if(nTab.includes(choixCode)){
+    spanVide.classList.add("addvide")
+    spanVide.innerHTML = "<p>Vérification de code réussie<p/>" 
+    setTimeout(() => {
+      spanVide.classList.remove("addvide")
+      spanVide.innerHTML = ""
+    }, 2000)
+    App()
+    boutonChoix.innerHTML = "CHOISSISSEZ VOTRE NUMERO"
+  }else{
+    boutonChoix.setAttribute("disabled", "off")
+    spanVide.innerHTML = "<p>VOUS N'AVEZ PAS ACCES<p/>"
+  }
+}
