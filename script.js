@@ -23,7 +23,7 @@ const memberList = [
   {nom : "Mme Fanny", code : "125MM7", sex : "F", numero : 6},
   {nom : "Mademoiselle TÉVOÉDJRE ", code : "125MM7", sex : "F", numero : 6},
   {nom : "Mr Évariste", code : "5LAS45", sex : "M", numero : 8}  
-]
+]  
 
 
 const init = {
@@ -42,7 +42,7 @@ const init = {
 const getDate = document.getElementById("date");
 getDate.value = new Date().toISOString().split("T")[0];
 
-let choixCode = prompt("Vueillez taper votre code : ")
+// let choixCode = prompt("Vueillez taper votre code : ")
 let nTab = []
 
 memberList.map((element) => {
@@ -158,25 +158,8 @@ function App () {
   };
 }
 
-if(choixCode){
-  if(nTab.includes(choixCode)){
+spanVide.innerHTML = "<p>RENDEZ-VOUS A L'ANNÉE PROCHAINE<p/>"
+spanVide.classList.add("addvide")
+boutonChoix.setAttribute("disabled", "off")
+boutonChoix.innerHTML = "FIN DE TIRAGES"
 
-    if(!["C321ED", "Z7XBV9"].includes(choixCode)){
-      boutonChoix.innerHTML = "AUREVOIR !!!"
-      boutonChoix.setAttribute("disabled", "off")
-      spanVide.innerHTML = "<p>VOUS AVEZ DEJA VOTRE NUMERO. MERCI<p/>" 
-    }else{
-      spanVide.classList.add("addvide")
-      spanVide.innerHTML = "<p>Vérification de code réussie<p/>" 
-      setTimeout(() => {
-      spanVide.classList.remove("addvide")
-      spanVide.innerHTML = ""
-    }, 2000)
-    App()
-    boutonChoix.innerHTML = "CHOISSISSEZ VOTRE NUMERO"
-    }
-  }else{
-    boutonChoix.setAttribute("disabled", "off")
-    spanVide.innerHTML = "<p>VOUS N'AVEZ PAS ACCES<p/>"
-  }
-}
