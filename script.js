@@ -160,14 +160,21 @@ function App () {
 
 if(choixCode){
   if(nTab.includes(choixCode)){
-    spanVide.classList.add("addvide")
-    spanVide.innerHTML = "<p>Vérification de code réussie<p/>" 
-    setTimeout(() => {
+
+    if(!["C321ED", "Z7XBV9"].includes(choixCode)){
+      boutonChoix.innerHTML = "AUREVOIR !!!"
+      boutonChoix.setAttribute("disabled", "off")
+      spanVide.innerHTML = "<p>VOUS AVEZ DEJA VOTRE NUMERO. MERCI<p/>" 
+    }else{
+      spanVide.classList.add("addvide")
+      spanVide.innerHTML = "<p>Vérification de code réussie<p/>" 
+      setTimeout(() => {
       spanVide.classList.remove("addvide")
       spanVide.innerHTML = ""
     }, 2000)
     App()
     boutonChoix.innerHTML = "CHOISSISSEZ VOTRE NUMERO"
+    }
   }else{
     boutonChoix.setAttribute("disabled", "off")
     spanVide.innerHTML = "<p>VOUS N'AVEZ PAS ACCES<p/>"
