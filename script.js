@@ -14,7 +14,7 @@ if(window.localStorage.localTable){
 
 const memberList = [
   {nom : "Jeremie", code : "A40S19", sex : "M", numero : 1},
-  {nom : "Mme Edwige", code : "A40S19", sex : "F", numero : 1},
+  {nom : "Mme Edwige", code : "DFJK77", sex : "F", numero : 1},
   {nom : "Mr BOKINI 1", code : "E7JFU3", sex : "M", numero : 2},
   {nom : "Mr BOKINI 2", code : "MCC1L9", sex : "M", numero : 3},
   {nom : "Mr Richard", code : "W745F2", sex : "M", numero : 4},
