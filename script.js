@@ -7,7 +7,10 @@ let n = 0;
 
 const spanVide = document.querySelector(".maclasse");
 const msgFin = document.querySelector("h3");
-localStorage.clear()
+
+if(window.localStorage.localTable){
+  localStorage.clear()
+}
 
 const memberList = [
   {nom : "Jeremie", code : "A40S19", sex : "M", numero : 1},
@@ -25,20 +28,6 @@ const memberList = [
   {nom : "Mme Hortense", code : "SS02JK", sex : "M", numero : 9},
   {nom : "Mr Georges", code : "Z7XBV9", sex : "M", numero : 10}
 ]  
-
-
-// const init = {
-//   method : "POST",
-//   headers : {
-//     "Content-Type" : "application/json"
-//   },
-//   body : JSON.stringify({
-//     pseudo : "Dolus",
-//     message : "Juste un exercice"
-//   }),
-//   mode : "cors",
-//   Credentials : "same-origin",
-// }
 
 const getDate = document.getElementById("date");
 getDate.value = new Date().toISOString().split("T")[0];
@@ -67,43 +56,14 @@ function App () {
     boutonChoix.classList.add("addClassButton");
     // autoPlay();
     numberChoice();
-    audio("clic.mp3");
   });
   
   function storage(t) {
-    window.localStorage.localTable = JSON.stringify(t);
-    return window.localStorage.localTable
+    window.localStorage.localValue = JSON.stringify(t);
+    return window.localStorage.localValue
   }
-  
-  function getStorage() {
-    let ndate = window.localStorage.localTable;
-    if (!ndate) {
-      storage(tableau)
-    } else {
-      localStorage.clear();
-      tableau = JSON.parse(ndate);
-    }
-  }
-
-  function getStor(){
-    let ndate = window.localStorage.localHour;
-    if (!ndate) {
-      storage(tHour)
-    } else {
-      tHour = JSON.parse(ndate);
-    }
-  }
-  
-  getStorage();
-  getStor();
   
   /*-------------------------------------------------*/
-  // const autoPlay = () => {
-  //   setTimeout(() => {
-  //     boutonChoix.classList.toggle("addClassButton");
-  //     choixBouton.removeAttribute("disabled");
-  //   }, 100);
-  // };
   
   const audio = (lien) => {
     let lecteur = new Audio();
@@ -113,12 +73,16 @@ function App () {
   
   const numberChoice = () => {
     let cul = notreChoix();
-    if (tableau.length === 10) {
-      msgFin.textContent = "FIN DE TIRAGE !";
+    if (window.localStorage.localValue) {
+
+      spanVide.classList.add("addvide")
+      spanVide.innerHTML =  `<p>Vous êtes le numero ${cul}<p/>`
+      msgFin.textContent = "LE TIRAGE NE SE FAIT QU'UNE SEULE FOIS !";
       msgFin.style.color = "tomato";
       setTimeout(() => {
-        choix.textContent = "Merci !";
+        choix.textContent = "merci !";
         choix.style.color = "white";
+        boutonChoix.setAttribute('disabled', 'off')
       }, 100);
       return;
     } else {
@@ -128,13 +92,10 @@ function App () {
           if (tableau.includes(cul)) {
             return;
           } else {
-            
-           
             let p = setInterval(() => {
               let rand = Math.ceil(Math.random() * 10)
               choix.innerHTML = rand;
               n++;
-              console.log(n);
               if(n===50){
                 clearInterval(p)
               }
@@ -143,7 +104,6 @@ function App () {
 
             setTimeout(() => {
               n = 1;
-              console.log(n);
               choix.textContent = cul;
               element.textContent = "ok";
               element.classList.add("addClassSpan");
@@ -158,21 +118,6 @@ function App () {
       });
     }
   };
-  
-  
-  // function addClass() {
-  //   span.forEach((element) => {
-  //     let tably = JSON.parse(storage(tableau));
-  //     tably.forEach((u) => {
-  //       if (u === parseInt(element.id)) {
-  //         element.classList.add("addClassSpan");
-  //         element.textContent = "ok";
-  //         spanVide.innerHTML += ``;
-  //       }
-  //     })
-  //   })
-  // };
-
   
 }
 
