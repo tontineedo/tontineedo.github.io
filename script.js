@@ -7,6 +7,7 @@ let n = 0;
 
 const spanVide = document.querySelector(".maclasse");
 const msgFin = document.querySelector("h3");
+localStorage.clear()
 
 const memberList = [
   {nom : "Jeremie", code : "A40S19", sex : "M", numero : 1},
@@ -14,7 +15,7 @@ const memberList = [
   {nom : "Mr BOKINI 1", code : "E7JFU3", sex : "M", numero : 2},
   {nom : "Mr BOKINI 2", code : "MCC1L9", sex : "M", numero : 3},
   {nom : "Mr Richard", code : "W745F2", sex : "M", numero : 4},
-  {nom : "Mme Mellique", code : "SX11RL", sex : "F", numero : 5},
+  {nom : "Mme Edwige", code : "SX11RL", sex : "F", numero : 5},
   {nom : "Mr Georges", code : "C321ED", sex : "M", numero : 5},
   {nom : "Pere Évariste", code : "5LAS45", sex : "M", numero : 6} ,
   {nom : "Mme Yemissi", code : "GJL323", sex : "M", numero : 7},
@@ -42,7 +43,7 @@ const memberList = [
 const getDate = document.getElementById("date");
 getDate.value = new Date().toISOString().split("T")[0];
 
-let choixCode = prompt("Vueillez taper votre code : ")
+let choixCode = prompt("Veuillez taper votre code : ")
 let nTab = []
 
 memberList.map((element) => {
@@ -56,8 +57,7 @@ const notreChoix = () => {
         numeroMembre = element.numero;
       }
     })
-
-  return numeroMembre;
+    return numeroMembre;
 }
 
 function App () {
@@ -65,7 +65,7 @@ function App () {
 
     choix.classList.add("addColorChoix");
     boutonChoix.classList.add("addClassButton");
-    autoPlay();
+    // autoPlay();
     numberChoice();
     audio("clic.mp3");
   });
@@ -98,12 +98,12 @@ function App () {
   getStor();
   
   /*-------------------------------------------------*/
-  const autoPlay = () => {
-    setTimeout(() => {
-      boutonChoix.classList.toggle("addClassButton");
-      choixBouton.removeAttribute("disabled");
-    }, 100);
-  };
+  // const autoPlay = () => {
+  //   setTimeout(() => {
+  //     boutonChoix.classList.toggle("addClassButton");
+  //     choixBouton.removeAttribute("disabled");
+  //   }, 100);
+  // };
   
   const audio = (lien) => {
     let lecteur = new Audio();
@@ -124,25 +124,35 @@ function App () {
     } else {
       span.forEach((element) => {
         if (cul === parseInt(element.id)) {
-          element.classList.add("addClassSpan");
-          element.textContent = "ok";
+          boutonChoix.setAttribute('disabled', 'off')
           if (tableau.includes(cul)) {
             return;
           } else {
-
-              setInterval(() => {
-                let rand = Math.ceil(Math.random() * 10)
-                choix.innerHTML = rand;
-              }, 80);
-              
-
-            choix.textContent = cul;
-            tableau[tableau.length] = cul;
-            storage(tableau);
-            boutonChoix.innerHTML = "MERCI POUR VOTRE CHOIX"
             
-            spanVide.classList.add("addvide")
-            spanVide.innerHTML = "<p>BRAVO!!! VOUS AVEZ CHOISI LE NUMERO <p/>" + cul;
+           
+            let p = setInterval(() => {
+              let rand = Math.ceil(Math.random() * 10)
+              choix.innerHTML = rand;
+              n++;
+              console.log(n);
+              if(n===50){
+                clearInterval(p)
+              }
+            }, 40);
+          
+
+            setTimeout(() => {
+              n = 1;
+              console.log(n);
+              choix.textContent = cul;
+              element.textContent = "ok";
+              element.classList.add("addClassSpan");
+              tableau[tableau.length] = cul;
+              storage(tableau);
+              boutonChoix.innerHTML = "MERCI POUR VOTRE CHOIX"
+              spanVide.classList.add("addvide")
+              spanVide.innerHTML = "<p>BRAVO!!! VOUS AVEZ CHOISI LE NUMERO <p/>" + cul;
+            }, 2000);
           }
         }
       });
@@ -150,18 +160,18 @@ function App () {
   };
   
   
-  function addClass() {
-    span.forEach((element) => {
-      let tably = JSON.parse(storage(tableau));
-      tably.forEach((u) => {
-        if (u === parseInt(element.id)) {
-          element.classList.add("addClassSpan");
-          element.textContent = "ok";
-          spanVide.innerHTML += ``;
-        }
-      })
-    })
-  };
+  // function addClass() {
+  //   span.forEach((element) => {
+  //     let tably = JSON.parse(storage(tableau));
+  //     tably.forEach((u) => {
+  //       if (u === parseInt(element.id)) {
+  //         element.classList.add("addClassSpan");
+  //         element.textContent = "ok";
+  //         spanVide.innerHTML += ``;
+  //       }
+  //     })
+  //   })
+  // };
 
   
 }
