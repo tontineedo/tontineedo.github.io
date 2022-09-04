@@ -75,7 +75,7 @@ function App () {
     if (window.localStorage.localValue) {
 
       spanVide.classList.add("addvide")
-      spanVide.innerHTML =  `<p>Vous êtes le numero ${cul}<p/>`
+      spanVide.innerHTML =  `<p>Vous avez déja fait un choix<p/>`
       msgFin.textContent = "LE TIRAGE NE SE FAIT QU'UNE SEULE FOIS !";
       msgFin.style.color = "tomato";
       setTimeout(() => {
