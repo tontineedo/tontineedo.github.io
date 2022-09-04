@@ -54,7 +54,6 @@ function App () {
 
     choix.classList.add("addColorChoix");
     boutonChoix.classList.add("addClassButton");
-    // autoPlay();
     numberChoice();
   });
   
@@ -121,7 +120,13 @@ function App () {
   
 }
 
-App();
+
+memberList.map((element) => {
+  if(element.code == choixCode){
+    App();
+  }
+})
+
 spanVide.innerHTML = "<p>SOYEZ LA BIENVENUE<p/>"
 spanVide.classList.add("addvide")
 boutonChoix.removeAttribute('disabled')
