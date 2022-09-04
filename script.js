@@ -17,16 +17,16 @@ const memberList = [
   {nom : "Mme Edwige", code : "DFJK77", sex : "F", numero : 1},
   {nom : "Mr BOKINI 1", code : "E7JFU3", sex : "M", numero : 2},
   {nom : "Mr BOKINI 2", code : "MCC1L9", sex : "M", numero : 3},
-  {nom : "Mr Richard", code : "W745F2", sex : "M", numero : 4},
+  // {nom : "Mr Richard", code : "W745F2", sex : "M", numero : 4},
   {nom : "Mme Edwige", code : "SX11RL", sex : "F", numero : 5},
-  {nom : "Mr Georges", code : "C321ED", sex : "M", numero : 5},
-  {nom : "Pere Évariste", code : "5LAS45", sex : "M", numero : 6} ,
-  {nom : "Mme Yemissi", code : "GJL323", sex : "M", numero : 7},
-  {nom : "Mme Mellique", code : "BB02HJ", sex : "F", numero : 7},
-  {nom : "Mr Moise", code : "125MM7", sex : "M", numero : 8},
-  {nom : "Mme Fanny", code : "OL7814", sex : "F", numero : 8},
-  {nom : "Mme Hortense", code : "SS02JK", sex : "M", numero : 9},
-  {nom : "Mr Georges", code : "Z7XBV9", sex : "M", numero : 10}
+  // {nom : "Mr Georges", code : "C321ED", sex : "M", numero : 5},
+  // {nom : "Pere Évariste", code : "5LAS45", sex : "M", numero : 6} ,
+  // {nom : "Mme Yemissi", code : "GJL323", sex : "M", numero : 7},
+  // {nom : "Mme Mellique", code : "BB02HJ", sex : "F", numero : 7},
+  // {nom : "Mr Moise", code : "125MM7", sex : "M", numero : 8},
+  {nom : "Mme Fanny", code : "OL7814", sex : "F", numero : 8}
+  // {nom : "Mme Hortense", code : "SS02JK", sex : "M", numero : 9},
+  // {nom : "Mr Georges", code : "Z7XBV9", sex : "M", numero : 10}
 ]  
 
 const getDate = document.getElementById("date");
