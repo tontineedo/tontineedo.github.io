@@ -3,46 +3,46 @@ const span = document.querySelectorAll(".span-1");
 const choixBouton = document.getElementById("boutonChoix");
 let tableau = [];
 let tHour = [];
+let n = 0;
 
 const spanVide = document.querySelector(".maclasse");
 const msgFin = document.querySelector("h3");
 
 const memberList = [
-  {nom : "Mr Barma", code : "A40S19", sex : "M", numero : 1},
+  {nom : "Jeremie", code : "A40S19", sex : "M", numero : 1},
   {nom : "Mme Edwige", code : "A40S19", sex : "F", numero : 1},
   {nom : "Mr BOKINI 1", code : "E7JFU3", sex : "M", numero : 2},
   {nom : "Mr BOKINI 2", code : "MCC1L9", sex : "M", numero : 3},
+  {nom : "Mr Richard", code : "W745F2", sex : "M", numero : 4},
   {nom : "Mme Mellique", code : "SX11RL", sex : "F", numero : 5},
-  {nom : "Mr Jérémie", code : "5LAS45", sex : "M", numero : 8},
-  {nom : "Mr Moise", code : "W745F2", sex : "M", numero : 10},
-  {nom : "Mr Aristide", code : "GJL323", sex : "M", numero : 7},
-  {nom : "Mr Constantin", code : "GJL323", sex : "M", numero : 7},
-  {nom : "Mr Bienvenu", code : "Z7XBV9", sex : "M", numero : 4},
-  {nom : "Mr Richard", code : "W745F2", sex : "M", numero : 10},
-  {nom : "Mr Georges", code : "C321ED", sex : "M", numero : 9},
-  {nom : "Mme Fanny", code : "125MM7", sex : "F", numero : 6},
-  {nom : "Mademoiselle TÉVOÉDJRE ", code : "125MM7", sex : "F", numero : 6},
-  {nom : "Mr Évariste", code : "5LAS45", sex : "M", numero : 8}  
+  {nom : "Mr Georges", code : "C321ED", sex : "M", numero : 5},
+  {nom : "Pere Évariste", code : "5LAS45", sex : "M", numero : 6} ,
+  {nom : "Mme Yemissi", code : "GJL323", sex : "M", numero : 7},
+  {nom : "Mme Mellique", code : "BB02HJ", sex : "F", numero : 7},
+  {nom : "Mr Moise", code : "125MM7", sex : "M", numero : 8},
+  {nom : "Mme Fanny", code : "OL7814", sex : "F", numero : 8},
+  {nom : "Mme Hortense", code : "SS02JK", sex : "M", numero : 9},
+  {nom : "Mr Georges", code : "Z7XBV9", sex : "M", numero : 10}
 ]  
 
 
-const init = {
-  method : "POST",
-  headers : {
-    "Content-Type" : "application/json"
-  },
-  body : JSON.stringify({
-    pseudo : "Dolus",
-    message : "Juste un exercice"
-  }),
-  mode : "cors",
-  Credentials : "same-origin",
-}
+// const init = {
+//   method : "POST",
+//   headers : {
+//     "Content-Type" : "application/json"
+//   },
+//   body : JSON.stringify({
+//     pseudo : "Dolus",
+//     message : "Juste un exercice"
+//   }),
+//   mode : "cors",
+//   Credentials : "same-origin",
+// }
 
 const getDate = document.getElementById("date");
 getDate.value = new Date().toISOString().split("T")[0];
 
-// let choixCode = prompt("Vueillez taper votre code : ")
+let choixCode = prompt("Vueillez taper votre code : ")
 let nTab = []
 
 memberList.map((element) => {
@@ -65,7 +65,6 @@ function App () {
 
     choix.classList.add("addColorChoix");
     boutonChoix.classList.add("addClassButton");
-    choixBouton.setAttribute("disabled", "off");
     autoPlay();
     numberChoice();
     audio("clic.mp3");
@@ -130,6 +129,13 @@ function App () {
           if (tableau.includes(cul)) {
             return;
           } else {
+
+              setInterval(() => {
+                let rand = Math.ceil(Math.random() * 10)
+                choix.innerHTML = rand;
+              }, 80);
+              
+
             choix.textContent = cul;
             tableau[tableau.length] = cul;
             storage(tableau);
@@ -156,10 +162,17 @@ function App () {
       })
     })
   };
+
+  
 }
 
-spanVide.innerHTML = "<p>RENDEZ-VOUS A L'ANNÉE PROCHAINE<p/>"
+App();
+spanVide.innerHTML = "<p>SOYEZ LA BIENVENUE<p/>"
 spanVide.classList.add("addvide")
-boutonChoix.setAttribute("disabled", "off")
-boutonChoix.innerHTML = "FIN DE TIRAGES"
+boutonChoix.removeAttribute('disabled')
+boutonChoix.innerHTML = "TIREZ VOTRE NUMERO"  
+
+
+
+
 
