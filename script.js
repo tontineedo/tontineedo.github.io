@@ -32,12 +32,12 @@ const memberList = [
 const getDate = document.getElementById("date");
 getDate.value = new Date().toISOString().split("T")[0];
 
-let choixCode = prompt("Veuillez taper votre code : ")
-let nTab = []
+let choixCode = '';
+let nTab = [];
 
-memberList.map((element) => {
-  nTab.push(element.code)
-})
+// memberList.map((element) => {
+//   nTab.push(element.code)
+// })
 
 const notreChoix = () => {
   let numeroMembre = 0;
@@ -121,16 +121,10 @@ function App () {
 }
 
 
-memberList.map((element) => {
-  if(element.code == choixCode){
-    App();
-  }
-})
-
-spanVide.innerHTML = "<p>SOYEZ LA BIENVENUE<p/>"
+// spanVide.innerHTML = "<p>SOYEZ LA BIENVENUE<p/>"
 spanVide.classList.add("addvide")
 boutonChoix.removeAttribute('disabled')
-boutonChoix.innerHTML = "TIREZ VOTRE NUMERO"  
+// boutonChoix.innerHTML = "TIREZ VOTRE NUMERO"  
 
 
 
